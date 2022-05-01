@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodeapp-version2
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: nodeapp
+      version: "2"
+  template:
+    metadata:
+      labels:
+        app: nodeapp
+        version: "2"
+    spec:
+      containers:
+      - name: nodeappv1-container
+        image: dusrbpoiiij/canarynodeapp:0.2
+        ports:
+        - containerPort: 3000
